@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle, Code2, Users, Zap, Shield, TrendingUp } from '
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import heroImage from '@/assets/hero-image.jpg';
+import NeuronBackground from '@/components/ui/neuron-background';
 
 const Home = () => {
   const highlights = [
@@ -41,11 +42,13 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero">
         <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-black" />
           <img 
             src={heroImage} 
             alt="Professional technology team" 
             className="w-full h-full object-cover opacity-10"
           />
+          <NeuronBackground className="absolute inset-0" />
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -55,12 +58,12 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                 Transform Your Business with{' '}
                 <span className="gradient-text">Advanced Technology</span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed max-w-3xl mx-auto">
                 We deliver innovative software solutions, expert consulting, and digital transformation 
                 services that drive growth and competitive advantage.
               </p>
@@ -85,7 +88,7 @@ const Home = () => {
               </div>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap justify-center items-center gap-8 text-muted-foreground">
+              <div className="flex flex-wrap justify-center items-center gap-8 text-white/70">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>ISO 27001 Certified</span>
@@ -105,7 +108,7 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-secondary/50">
+      <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
