@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { Tilt } from '@/components/ui/tilt';
+import { staggerContainer, itemFade } from '@/lib/motion';
 import { Code2, Cloud, Shield, Database, Smartphone, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -62,14 +64,16 @@ const Services = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
+          variants={staggerContainer(0.1, 0.15)}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: '-80px' }}
+        >
+          {services.map((service) => (
+            <motion.div key={service.title} variants={itemFade}>
+              <Tilt className="[transform:perspective(1000px)]">
               <Card className="h-full hover-lift border-0 shadow-soft">
                 <CardHeader className="pb-4">
                   <div className="flex items-start justify-between">
@@ -101,15 +105,16 @@ const Services = () => {
                     </ul>
                   </div>
 
-                  <Button className="w-full bg-gradient-primary hover:opacity-90 text-white group">
+                  <motion.button whileTap={{ scale: 0.98 }} className="w-full bg-gradient-primary hover:opacity-90 text-white group rounded-md h-10 flex items-center justify-center">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  </motion.button>
                 </CardContent>
               </Card>
+              </Tilt>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Process Section */}
         <motion.div

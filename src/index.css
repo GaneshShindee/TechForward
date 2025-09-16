@@ -126,6 +126,16 @@ All colors, gradients, fonts, etc defined here. All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-inter antialiased;
   }
+  
+  /* Hide native cursor when custom cursor is active, respect reduced-motion */
+  .custom-cursor-active body, body.custom-cursor-active {
+    cursor: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .custom-cursor-active body, body.custom-cursor-active {
+      cursor: auto;
+    }
+  }
 
   /* Professional scroll behavior */
   html {

@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { Tilt } from '@/components/ui/tilt';
+import { staggerContainer, itemFade } from '@/lib/motion';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -16,14 +18,14 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Call Us',
-      details: '+1 (555) 123-4567',
+      details: '9921868240',
       description: 'Mon-Fri from 8am to 6pm PST'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: '123 Tech Street, San Francisco, CA 94105',
-      description: 'Our headquarters in downtown SF'
+      details: 'Pune, Maharashtra, India',
+      description: 'Our office location'
     },
     {
       icon: Clock,
@@ -154,13 +156,14 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button 
+                  <motion.button 
                     type="submit" 
-                    className="w-full bg-gradient-primary hover:opacity-90 text-white text-lg py-3 group"
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-gradient-primary hover:opacity-90 text-white text-lg py-3 group rounded-md"
                   >
                     Send Message
-                    <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                    <Send className="ml-2 h-5 w-5 inline-block align-middle group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
                 </form>
               </CardContent>
             </Card>
@@ -168,41 +171,39 @@ const Contact = () => {
 
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
             className="space-y-6"
+            variants={staggerContainer(0.08, 0.2)}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: '-80px' }}
           >
-            {contactInfo.map((info, index) => (
-              <motion.div
-                key={info.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-              >
-                <Card className="hover-lift border-0 shadow-soft">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
-                        <info.icon className="h-6 w-6 text-white" />
+            {contactInfo.map((info) => (
+              <motion.div key={info.title} variants={itemFade}>
+                <Tilt className="[transform:perspective(1000px)]">
+                  <Card className="hover-lift border-0 shadow-soft">
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                          <info.icon className="h-6 w-6 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-foreground mb-1">
+                            {info.title}
+                          </h3>
+                          <p className="text-primary font-medium mb-1">
+                            {info.details}
+                          </p>
+                          <p className="text-muted-foreground text-sm">
+                            {info.description}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">
-                          {info.title}
-                        </h3>
-                        <p className="text-primary font-medium mb-1">
-                          {info.details}
-                        </p>
-                        <p className="text-muted-foreground text-sm">
-                          {info.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </Tilt>
               </motion.div>
             ))}
-
+         
             {/* Map Placeholder */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -211,12 +212,17 @@ const Contact = () => {
             >
               <Card className="border-0 shadow-soft">
                 <CardContent className="p-0">
-                  <div className="h-48 bg-gradient-secondary rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
-                      <p className="text-muted-foreground font-medium">Interactive Map</p>
-                      <p className="text-muted-foreground text-sm">San Francisco, CA</p>
-                    </div>
+                  <div className="rounded-lg overflow-hidden h-64">
+                    <iframe
+                      title="Pune, Maharashtra Map"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15133.030216649842!2d73.84226!3d18.516726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c06d13d9a7d7%3A0x2b7a3a8680a5c1d5!2sPune%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      allowFullScreen
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
                   </div>
                 </CardContent>
               </Card>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { staggerContainer, itemFade } from '@/lib/motion';
 import { ArrowRight, CheckCircle, Code2, Users, Zap, Shield, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -72,13 +73,15 @@ const Home = () => {
                   Get Started Today
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="text-lg px-8 py-4 border-2 hover:bg-secondary"
-                >
-                  View Our Work
-                </Button>
+                <a href="/about#projects">
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="text-lg px-8 py-4 border-2 hover:bg-secondary"
+                  >
+                    View Our Work
+                  </Button>
+                </a>
               </div>
 
               {/* Trust Indicators */}
@@ -104,22 +107,22 @@ const Home = () => {
       {/* Stats Section */}
       <section className="py-16 bg-secondary/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            variants={staggerContainer(0.08, 0.15)}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: '-80px' }}
+         >
+            {stats.map((stat) => (
+              <motion.div key={stat.label} variants={itemFade} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
                 <div className="text-muted-foreground">{stat.label}</div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -141,14 +144,15 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={highlight.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={staggerContainer(0.1, 0.2)}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            {highlights.map((highlight) => (
+              <motion.div key={highlight.title} variants={itemFade}>
                 <Card className="h-full hover-lift border-0 shadow-soft">
                   <CardContent className="p-6 text-center">
                     <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -164,7 +168,7 @@ const Home = () => {
                 </Card>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 

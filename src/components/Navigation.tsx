@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { fadeInUp } from '@/lib/motion';
 import { Menu, X, Code2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -20,7 +21,12 @@ const Navigation = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <motion.div
+          className="flex justify-between items-center h-16"
+          variants={fadeInUp}
+          initial="initial"
+          animate="animate"
+        >
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="p-2 bg-gradient-primary rounded-lg group-hover:scale-105 transition-transform">
@@ -62,7 +68,7 @@ const Navigation = () => {
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
-        </div>
+        </motion.div>
 
         {/* Mobile Navigation */}
         {isOpen && (

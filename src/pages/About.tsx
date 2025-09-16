@@ -160,8 +160,8 @@ const About = () => {
                     <li key={item}>• {item}</li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
             <Card className="border-0 shadow-soft">
               <CardContent className="p-6">
                 <h3 className="font-semibold text-foreground mb-3">Tools & DevOps</h3>
@@ -177,6 +177,7 @@ const About = () => {
 
         {/* Projects */}
         <motion.div
+          id="projects"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -184,7 +185,7 @@ const About = () => {
         >
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-foreground">Projects That Define Me</h2>
-          </div>
+            </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {projects.map((p) => (
               <Card key={p.title} className="border-0 shadow-soft h-full">
@@ -205,7 +206,7 @@ const About = () => {
                   </div>
                 </CardContent>
               </Card>
-            ))}
+              ))}
           </div>
         </motion.div>
 
@@ -222,7 +223,7 @@ const About = () => {
                 <div className="flex items-center gap-2 text-primary mb-3">
                   <GraduationCap className="h-5 w-5" />
                   <h3 className="text-lg font-semibold text-foreground">Education</h3>
-                </div>
+          </div>
                 <ul className="text-sm text-muted-foreground space-y-3">
                   {education.map((e) => (
                     <li key={e.title}>
@@ -238,7 +239,7 @@ const About = () => {
                 <div className="flex items-center gap-2 text-primary mb-3">
                   <Award className="h-5 w-5" />
                   <h3 className="text-lg font-semibold text-foreground">Recognitions & Certifications</h3>
-                </div>
+                    </div>
                 <ul className="text-sm text-muted-foreground space-y-2">
                   {certifications.map((c) => (
                     <li key={c.label}>
@@ -246,8 +247,8 @@ const About = () => {
                     </li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
           </div>
         </motion.div>
 
@@ -270,7 +271,7 @@ const About = () => {
                 <a href="https://www.vishwapreneur.in/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline">
                   <Globe className="h-4 w-4" /> Vishwapreneur Event Website
                 </a>
-              </div>
+          </div>
             </CardContent>
           </Card>
         </motion.div>
