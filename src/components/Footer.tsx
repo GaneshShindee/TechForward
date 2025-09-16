@@ -14,7 +14,7 @@ const Footer = () => {
               <div className="p-2 bg-gradient-primary rounded-lg">
                 <Code2 className="h-5 w-5 text-white" />
               </div>
-              <span className="text-lg font-bold gradient-text">TechForward</span>
+              <span className="text-lg font-bold gradient-text">Veltron AI</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Empowering businesses through innovative technology solutions and expert consulting services.
@@ -61,7 +61,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-sm">
                 <Mail className="h-4 w-4 text-primary" />
-                <span className="text-muted-foreground">hello@techforward.com</span>
+                <span className="text-muted-foreground">hello@veltron.ai</span>
               </div>
               <div className="flex items-center space-x-3 text-sm">
                 <Phone className="h-4 w-4 text-primary" />
@@ -99,7 +99,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">
-              © 2024 TechForward Solutions. All rights reserved.
+              © 2024 Veltron AI. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">

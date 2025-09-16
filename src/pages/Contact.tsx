@@ -10,7 +10,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      details: 'hello@techforward.com',
+      details: 'hello@veltron.ai',
       description: 'Send us an email anytime'
     },
     {

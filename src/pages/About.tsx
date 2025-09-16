@@ -1,64 +1,65 @@
 import { motion } from 'framer-motion';
-import { Target, Eye, Users, Award, TrendingUp, Code2 } from 'lucide-react';
+import { Linkedin, Github, Globe, Sparkles, GraduationCap, Award } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import techPatternImage from '@/assets/tech-pattern.jpg';
+import { Button } from '@/components/ui/button';
 
 const About = () => {
-  const values = [
+  const skills = {
+    frontend: ['React.js', 'Bootstrap', 'Responsive UIs'],
+    backend: ['Node.js', 'Express.js', 'REST APIs'],
+    data: ['MongoDB', 'MySQL', 'Firebase'],
+    tools: ['Git', 'Docker', 'Render', 'VS Code']
+  };
+
+  const projects = [
     {
-      icon: Target,
-      title: 'Mission',
-      description: 'To empower businesses with innovative technology solutions that drive growth, efficiency, and competitive advantage in the digital age.'
+      title: 'WanderLust',
+      subtitle: 'Airbnb-like vacation rental platform',
+      demoUrl: 'https://wanderlust-projectaffan.onrender.com/',
+      codeUrl: 'https://github.com/GaneshShindee/WanderLust'
     },
     {
-      icon: Eye,
-      title: 'Vision',
-      description: 'To be the leading technology partner that transforms how businesses operate and succeed in an increasingly digital world.'
+      title: 'EchoBazar',
+      subtitle: 'MERN e-commerce with secure checkout & admin panel',
+      demoUrl: 'https://echobazar.vercel.app/',
+      codeUrl: 'https://github.com/GaneshShindee/ecommerce-website.git'
     },
     {
-      icon: Award,
-      title: 'Excellence',
-      description: 'We maintain the highest standards in everything we do, from code quality to client service and project delivery.'
-    },
-    {
-      icon: Users,
-      title: 'Collaboration',
-      description: 'We believe in the power of partnership and work closely with our clients to achieve shared success.'
+      title: 'Face Recognition Attendance System',
+      subtitle: 'IoT + AI solution for automated attendance',
+      demoUrl: undefined,
+      codeUrl: 'https://github.com/GaneshShindee/Face-recognition'
     }
   ];
 
-  const team = [
+  const education = [
     {
-      name: 'Sarah Chen',
-      role: 'Chief Technology Officer',
-      expertise: 'Full-Stack Development, Cloud Architecture',
-      experience: '12+ years'
+      title: 'B.Tech, VIIT Pune (2022–2026)',
+      details: 'Core in DSA, DBMS, CN, OS'
+    },
+    { title: 'HSC – 94.5%', details: 'Dayanand Junior Science College' },
+    { title: 'SSC – 90.8%', details: 'KBP Vidhyalaya, Latur' }
+  ];
+
+  const certifications = [
+    {
+      label: 'IBM Full Stack Software Developer',
+      url: 'https://www.coursera.org/account/accomplishments/professional-cert/5B3IQ47YSHK9'
     },
     {
-      name: 'Michael Rodriguez',
-      role: 'Lead Solutions Architect',
-      expertise: 'Enterprise Software, DevOps',
-      experience: '10+ years'
+      label: 'SQL for Data Science (UC Davis)',
+      url: 'https://www.coursera.org/account/accomplishments/verify/XRBHQPTKQMX0'
     },
     {
-      name: 'Emily Johnson',
-      role: 'Head of Data Science',
-      expertise: 'Machine Learning, Analytics',
-      experience: '8+ years'
-    },
-    {
-      name: 'David Kim',
-      role: 'Senior Security Consultant',
-      expertise: 'Cybersecurity, Compliance',
-      experience: '15+ years'
+      label: 'DevOps and Software Engineering',
+      url: 'https://www.coursera.org/account/accomplishments/specialization/U2EPKI0528EL'
     }
   ];
 
-  const achievements = [
-    { number: '150+', label: 'Successful Projects' },
-    { number: '98%', label: 'Client Satisfaction' },
-    { number: '50+', label: 'Enterprise Clients' },
-    { number: '5+', label: 'Industry Awards' }
+  const leadership = [
+    'Associate Technical Head @ EDC VIIT – Led website revamp for Vishwapreneur’24',
+    'Placement Coordinator @ VIIT – Helped students & companies connect better',
+    'Publicity Head @ NSS – Spreading awareness through social campaigns'
   ];
 
   return (
@@ -69,196 +70,209 @@ const About = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            About <span className="gradient-text">TechForward</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We are a team of passionate technologists, innovators, and problem-solvers dedicated 
-            to helping businesses thrive in the digital era.
-          </p>
-        </motion.div>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">👋 Hi, I’m Ganesh Shinde</h1>
+          <p className="text-lg md:text-xl text-muted-foreground mb-2">💻 Full-Stack Developer | Problem Solver | Innovator</p>
+          <p className="text-base md:text-lg text-muted-foreground">✨ “Turning ideas into impactful digital experiences.”</p>
 
-        {/* Company Story */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">Our Story</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  Founded in 2014, TechForward emerged from a simple belief: that technology should 
-                  be an enabler, not a barrier. Our founders, experienced software engineers and 
-                  business consultants, recognized the gap between complex technical solutions and 
-                  real business needs.
-                </p>
-                <p>
-                  Over the years, we've grown from a small startup to a trusted technology partner 
-                  for businesses of all sizes. Our commitment to excellence, innovation, and client 
-                  success has remained unchanged, even as we've expanded our capabilities and team.
-                </p>
-                <p>
-                  Today, we're proud to have delivered over 150 successful projects, helping companies 
-                  across various industries modernize their operations, improve efficiency, and 
-                  achieve their digital transformation goals.
-                </p>
-              </div>
-            </div>
-            <div className="relative">
-              <img 
-                src={techPatternImage} 
-                alt="Technology patterns representing our innovation" 
-                className="rounded-2xl shadow-large"
-              />
-              <div className="absolute inset-0 bg-gradient-primary/20 rounded-2xl" />
-            </div>
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <Button asChild variant="outline" className="flex items-center gap-2">
+              <a href="https://www.linkedin.com/in/ganeshshindeviit/" target="_blank" rel="noreferrer">
+                <Linkedin className="h-4 w-4" /> LinkedIn
+              </a>
+            </Button>
+            <Button asChild variant="outline" className="flex items-center gap-2">
+              <a href="https://github.com/GaneshShindee" target="_blank" rel="noreferrer">
+                <Github className="h-4 w-4" /> GitHub
+              </a>
+            </Button>
+            <Button asChild variant="outline" className="flex items-center gap-2">
+              <a href="https://leetcode.com/u/GaneshShinde2003/" target="_blank" rel="noreferrer">
+                <Globe className="h-4 w-4" /> LeetCode
+              </a>
+            </Button>
+            <Button asChild className="bg-gradient-primary text-white flex items-center gap-2">
+              <a href="https://ganeshshindee.github.io/Advance-Portfolio/" target="_blank" rel="noreferrer">
+                <Globe className="h-4 w-4" /> Portfolio
+              </a>
+            </Button>
           </div>
         </motion.div>
 
-        {/* Mission & Vision */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full hover-lift border-0 shadow-soft">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <value.icon className="h-8 w-8 text-white" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-3">
-                      {value.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {value.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Achievements */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <div className="bg-gradient-primary rounded-2xl p-8 md:p-12">
-            <div className="text-center mb-12">
-              <TrendingUp className="h-16 w-16 text-white mx-auto mb-6 opacity-90" />
-              <h2 className="text-3xl font-bold text-white mb-4">Our Achievements</h2>
-              <p className="text-white/90 text-lg max-w-2xl mx-auto">
-                Numbers that reflect our commitment to excellence and client success.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {achievements.map((achievement, index) => (
-                <motion.div
-                  key={achievement.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                    {achievement.number}
-                  </div>
-                  <div className="text-white/80">{achievement.label}</div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Team Section */}
+        {/* About Me */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Meet Our <span className="gradient-text">Leadership Team</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Experienced professionals who are passionate about technology and committed to your success.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="hover-lift border-0 shadow-soft">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Code2 className="h-10 w-10 text-white" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-primary font-medium text-sm mb-3">
-                      {member.role}
-                    </p>
-                    <p className="text-muted-foreground text-sm mb-2">
-                      {member.expertise}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {member.experience}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+          <Card className="border-0 shadow-soft">
+            <CardContent className="p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">About Me</h2>
+              <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+                I’m an aspiring software engineer passionate about creating products that solve real-world problems. With hands-on experience in web development, IoT, and AI, I enjoy building applications that are not just functional but also meaningful. Currently pursuing my B.Tech in Electronics & Telecommunication at VIIT, Pune, I combine academic knowledge with practical projects to bring ideas to life.
+              </p>
+            </CardContent>
+          </Card>
         </motion.div>
 
-        {/* CTA Section */}
+        {/* What I Do */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center bg-secondary/50 rounded-2xl p-8 md:p-12"
+          className="mb-16"
         >
-          <Users className="h-16 w-16 text-primary mx-auto mb-6" />
-          <h2 className="text-3xl font-bold text-foreground mb-6">
-            Ready to Work Together?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let's discuss how our team can help you achieve your technology goals and 
-            drive your business forward.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-primary hover:opacity-90 text-white px-8 py-4 rounded-lg font-medium transition-opacity">
-              Schedule a Meeting
-            </button>
-            <button className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg font-medium transition-colors">
-              View Our Portfolio
-            </button>
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-2 text-primary mb-2">
+              <Sparkles className="h-5 w-5" />
+              <span className="uppercase tracking-wider text-xs font-semibold">What I Do</span>
+            </div>
+            <h2 className="text-3xl font-bold text-foreground">Skills & Focus</h2>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="border-0 shadow-soft">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-foreground mb-3">Frontend Magic</h3>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  {skills.frontend.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-soft">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-foreground mb-3">Backend Power</h3>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  {skills.backend.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-soft">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-foreground mb-3">Data Handling</h3>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  {skills.data.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-soft">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-foreground mb-3">Tools & DevOps</h3>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  {skills.tools.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </motion.div>
+
+        {/* Projects */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-foreground">Projects That Define Me</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {projects.map((p) => (
+              <Card key={p.title} className="border-0 shadow-soft h-full">
+                <CardContent className="p-6 flex flex-col h-full">
+                  <h3 className="text-lg font-semibold text-foreground mb-1">{p.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{p.subtitle}</p>
+                  <div className="mt-auto flex gap-3">
+                    {p.demoUrl && (
+                      <Button asChild size="sm" variant="secondary">
+                        <a href={p.demoUrl} target="_blank" rel="noreferrer">Live Demo</a>
+                      </Button>
+                    )}
+                    {p.codeUrl && (
+                      <Button asChild size="sm" variant="outline">
+                        <a href={p.codeUrl} target="_blank" rel="noreferrer">Code</a>
+                      </Button>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Education & Certifications */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card className="border-0 shadow-soft">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-2 text-primary mb-3">
+                  <GraduationCap className="h-5 w-5" />
+                  <h3 className="text-lg font-semibold text-foreground">Education</h3>
+                </div>
+                <ul className="text-sm text-muted-foreground space-y-3">
+                  {education.map((e) => (
+                    <li key={e.title}>
+                      <span className="text-foreground font-medium">{e.title}</span>
+                      <div>{e.details}</div>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-soft">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-2 text-primary mb-3">
+                  <Award className="h-5 w-5" />
+                  <h3 className="text-lg font-semibold text-foreground">Recognitions & Certifications</h3>
+                </div>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  {certifications.map((c) => (
+                    <li key={c.label}>
+                      • <a href={c.url} target="_blank" rel="noreferrer" className="text-primary hover:underline">{c.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </motion.div>
+
+        {/* Beyond Tech */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
+          <Card className="border-0 shadow-soft">
+            <CardContent className="p-6 md:p-8">
+              <h3 className="text-2xl font-bold text-foreground mb-4">Beyond Tech</h3>
+              <ul className="text-muted-foreground space-y-2">
+                {leadership.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <div className="mt-4">
+                <a href="https://www.vishwapreneur.in/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline">
+                  <Globe className="h-4 w-4" /> Vishwapreneur Event Website
+                </a>
+              </div>
+            </CardContent>
+          </Card>
         </motion.div>
       </div>
     </div>

@@ -26,7 +26,7 @@ const Navigation = () => {
             <div className="p-2 bg-gradient-primary rounded-lg group-hover:scale-105 transition-transform">
               <Code2 className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xl font-bold gradient-text">TechForward</span>
+            <span className="text-xl font-bold gradient-text">Veltron AI</span>
           </Link>
 
           {/* Desktop Navigation */}

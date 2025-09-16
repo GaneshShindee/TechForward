@@ -133,7 +133,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why Choose <span className="gradient-text">TechForward</span>?
+              Why Choose <span className="gradient-text">Veltron AI</span>?
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               We combine deep technical expertise with business acumen to deliver solutions 
