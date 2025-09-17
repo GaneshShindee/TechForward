@@ -8,44 +8,44 @@ All colors, gradients, fonts, etc defined here. All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Professional blue palette */
-    --background: 0 0% 100%;
-    --foreground: 224 71% 4%;
+    /* Professional blue palette - Dark theme */
+    --background: 224 71% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 224 71% 4%;
+    --card: 224 64% 9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71% 4%;
+    --popover: 224 64% 9%;
+    --popover-foreground: 0 0% 98%;
 
     /* Professional blue primary */
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 98%;
     --primary-hover: 217 91% 55%;
 
-    /* Clean secondary grays */
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 9% 46%;
+    /* Clean secondary grays - Dark theme */
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 220 9% 86%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 220 9% 66%;
 
-    --accent: 220 14% 96%;
-    --accent-foreground: 224 71% 4%;
+    --accent: 215 28% 17%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
     --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
-    /* Professional gradients */
+    /* Professional gradients - Dark theme */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(224 76% 48%));
-    --gradient-secondary: linear-gradient(135deg, hsl(220 14% 96%), hsl(220 13% 91%));
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(224 76% 48% / 0.05));
+    --gradient-secondary: linear-gradient(135deg, hsl(215 28% 17%), hsl(224 64% 9%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60% / 0.2), hsl(224 76% 48% / 0.1));
 
     /* Professional shadows */
     --shadow-soft: 0 2px 8px hsl(217 91% 60% / 0.1);
@@ -56,19 +56,19 @@ All colors, gradients, fonts, etc defined here. All colors MUST be HSL.
     --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 240 5.9% 10%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 240 4.8% 95.9%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 224.3 76.3% 48%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 100%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 240 3.7% 15.9%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
 
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 240 3.7% 15.9%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
   }

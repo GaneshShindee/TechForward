@@ -76,23 +76,23 @@ const About = () => {
           <p className="text-lg md:text-xl text-muted-foreground mb-2">💻 Full-Stack Developer | Problem Solver | Innovator</p>
           <p className="text-base md:text-lg text-muted-foreground">✨ “Turning ideas into impactful digital experiences.”</p>
 
-          <div className="flex items-center justify-center gap-3 mt-6">
-            <Button asChild variant="outline" className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
+            <Button asChild variant="outline" className="flex items-center gap-2 w-full sm:w-auto">
               <a href="https://www.linkedin.com/in/ganeshshindeviit/" target="_blank" rel="noreferrer">
                 <Linkedin className="h-4 w-4" /> LinkedIn
               </a>
             </Button>
-            <Button asChild variant="outline" className="flex items-center gap-2">
+            <Button asChild variant="outline" className="flex items-center gap-2 w-full sm:w-auto">
               <a href="https://github.com/GaneshShindee" target="_blank" rel="noreferrer">
                 <Github className="h-4 w-4" /> GitHub
               </a>
             </Button>
-            <Button asChild variant="outline" className="flex items-center gap-2">
+            <Button asChild variant="outline" className="flex items-center gap-2 w-full sm:w-auto">
               <a href="https://leetcode.com/u/GaneshShinde2003/" target="_blank" rel="noreferrer">
                 <Globe className="h-4 w-4" /> LeetCode
               </a>
             </Button>
-            <Button asChild className="bg-gradient-primary text-white flex items-center gap-2">
+            <Button asChild className="bg-gradient-primary text-white flex items-center gap-2 w-full sm:w-auto">
               <a href="https://ganeshshindee.github.io/Advance-Portfolio/" target="_blank" rel="noreferrer">
                 <Globe className="h-4 w-4" /> Portfolio
               </a>
@@ -186,7 +186,7 @@ const About = () => {
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-foreground">Projects That Define Me</h2>
             </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {projects.map((p) => (
               <Card key={p.title} className="border-0 shadow-soft h-full">
                 <CardContent className="p-6 flex flex-col h-full">

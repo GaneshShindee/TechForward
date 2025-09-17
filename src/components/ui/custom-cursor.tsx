@@ -6,6 +6,37 @@ const isReducedMotionPreferred = () => {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 };
 
+const getBackgroundColor = (element: HTMLElement): string | null => {
+  const computedStyle = getComputedStyle(element);
+  let backgroundColor = computedStyle.backgroundColor;
+  
+  // If background is transparent, check parent elements
+  if (backgroundColor === 'rgba(0, 0, 0, 0)' || backgroundColor === 'transparent') {
+    const parent = element.parentElement;
+    if (parent && parent !== document.body) {
+      return getBackgroundColor(parent);
+    }
+    return null;
+  }
+  
+  return backgroundColor;
+};
+
+const checkIfDarkBackground = (color: string | null): boolean => {
+  if (!color) return true; // Default to dark if can't determine
+  
+  // Parse RGB values
+  const rgbMatch = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+  if (!rgbMatch) return true;
+  
+  const [, r, g, b] = rgbMatch.map(Number);
+  
+  // Calculate luminance
+  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  
+  return luminance < 0.5; // Dark if luminance < 0.5
+};
+
 export const CustomCursor = () => {
   const [enabled, setEnabled] = useState(false);
   const mouseX = useMotionValue(0);
@@ -16,6 +47,7 @@ export const CustomCursor = () => {
   const ringY = useSpring(mouseY, { stiffness: 300, damping: 30, mass: 0.6 });
   const scale = useRef(1);
   const [isPointer, setIsPointer] = useState(false);
+  const [isDarkBackground, setIsDarkBackground] = useState(true);
 
   const ringTransform = useTransform([ringX, ringY], ([x, y]) => `translate3d(${x}px, ${y}px, 0)`);
   const dotTransform = useTransform([dotX, dotY], ([x, y]) => `translate3d(${x}px, ${y}px, 0)`);
@@ -27,7 +59,16 @@ export const CustomCursor = () => {
     const move = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
+      
+      // Detect background color at cursor position
+      const element = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement;
+      if (element) {
+        const bgColor = getBackgroundColor(element);
+        const isDark = checkIfDarkBackground(bgColor);
+        setIsDarkBackground(isDark);
+      }
     };
+    
     const over = (e: Event) => {
       const target = e.target as HTMLElement | null;
       const pointerLike = !!target && (
@@ -41,6 +82,7 @@ export const CustomCursor = () => {
       setIsPointer(pointerLike);
       scale.current = pointerLike ? 1.35 : 1;
     };
+    
     window.addEventListener('mousemove', move);
     window.addEventListener('mouseover', over as any);
     document.body.classList.add('custom-cursor-active');
@@ -56,11 +98,22 @@ export const CustomCursor = () => {
   const ringSize = 36;
   const dotSize = 6;
 
+  // Dynamic colors based on background
+  const cursorColors = isDarkBackground 
+    ? {
+        ring: 'border-blue-400/50 bg-blue-400/10 shadow-[0_0_20px_hsl(217_91%_60%/0.35)]',
+        dot: 'bg-blue-400'
+      }
+    : {
+        ring: 'border-blue-800/50 bg-blue-800/10 shadow-[0_0_20px_hsl(224_76%_48%/0.35)]',
+        dot: 'bg-blue-800'
+      };
+
   return (
     <div className="custom-cursor pointer-events-none fixed inset-0 z-[9999]">
       <motion.div
         aria-hidden
-        className="absolute rounded-full border border-primary/50 bg-primary/10 shadow-[0_0_20px_hsl(var(--primary)/0.35)]"
+        className={`absolute rounded-full border ${cursorColors.ring}`}
         style={{
           width: ringSize,
           height: ringSize,
@@ -73,7 +126,7 @@ export const CustomCursor = () => {
       />
       <motion.div
         aria-hidden
-        className="absolute rounded-full bg-primary"
+        className={`absolute rounded-full ${cursorColors.dot}`}
         style={{
           width: dotSize,
           height: dotSize,
@@ -88,5 +141,3 @@ export const CustomCursor = () => {
 };
 
 export default CustomCursor;
-
-
