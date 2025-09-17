@@ -19,7 +19,7 @@ const Contact = () => {
       icon: Phone,
       title: 'Call Us',
       details: '9921868240',
-      description: 'Mon-Fri from 9am to 6pm IST'
+      description: 'Mon-Fri from 8am to 6pm PST'
     },
     {
       icon: MapPin,
@@ -30,7 +30,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: 'Business Hours',
-      details: 'Mon-Fri: 9am-6pm IST',
+      details: 'Mon-Fri: 8am-6pm PST',
       description: '24/7 support for enterprise clients'
     }
   ];

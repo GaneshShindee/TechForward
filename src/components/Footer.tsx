@@ -17,16 +17,16 @@ const Footer = () => {
               <span className="text-lg font-bold gradient-text">Veltron AI</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Empowering Indian businesses with cutting-edge technology solutions, AI innovation, and digital transformation expertise.
+              Empowering businesses through innovative technology solutions and expert consulting services.
             </p>
             <div className="flex space-x-4">
-              <a href="https://linkedin.com/company/veltron-ai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://twitter.com/veltron_ai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="https://github.com/veltron-ai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Github className="h-5 w-5" />
               </a>
             </div>
@@ -61,33 +61,26 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-sm">
                 <Mail className="h-4 w-4 text-primary" />
-                <a href="mailto:hello@veltron.ai" className="text-muted-foreground hover:text-primary transition-colors">
-                  hello@veltron.ai
-                </a>
+                <span className="text-muted-foreground">hello@veltron.ai</span>
               </div>
               <div className="flex items-center space-x-3 text-sm">
                 <Phone className="h-4 w-4 text-primary" />
-                <a href="tel:+919921868240" className="text-muted-foreground hover:text-primary transition-colors">
-                  +91 9921868240
-                </a>
+                <span className="text-muted-foreground">+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-3 text-sm">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span className="text-muted-foreground">Pune, Maharashtra, India</span>
-              </div>
-              <div className="flex items-center space-x-3 text-sm">
-                <span className="text-muted-foreground">Available 24/7 for Enterprise Support</span>
+                <span className="text-muted-foreground">San Francisco, CA</span>
               </div>
             </div>
           </div>
 
-          {/* Newsletter & Business Hours */}
+          {/* Newsletter */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-              Stay Connected
+              Stay Updated
             </h3>
             <p className="text-sm text-muted-foreground">
-              Stay updated with the latest in Indian tech innovation, AI breakthroughs, and digital transformation trends.
+              Subscribe to our newsletter for the latest tech insights.
             </p>
             <div className="space-y-2">
               <Input 
@@ -98,13 +91,6 @@ const Footer = () => {
               <Button className="w-full bg-gradient-primary hover:opacity-90 text-white text-sm">
                 Subscribe
               </Button>
-            </div>
-            <div className="pt-2 border-t border-border">
-              <p className="text-xs text-muted-foreground">
-                <strong>Business Hours:</strong><br />
-                Mon-Fri: 9AM-6PM IST<br />
-                24/7 Support for Enterprise Clients
-              </p>
             </div>
           </div>
         </div>
